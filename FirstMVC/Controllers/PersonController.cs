@@ -18,9 +18,9 @@ public class PersonController : Controller
         return View();
     }
     [HttpPost]
-    public IActionResult Index(string FullName, string PersonID)
+    public IActionResult Index(Person ps)
     {
-        string strResult = "Xin chao : " + FullName + " - " + PersonID  + "!" ;
+        string strResult = "Xin chao : " + ps.FullName + " - " + ps.PersonID  + "!" ;
         ViewBag.Nhandulieu = strResult;
         return View();
     }
