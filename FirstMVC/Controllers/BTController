@@ -1,0 +1,22 @@
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using FirstMVC.Models;
+
+namespace FirstMVC.Controllers;
+
+public class BTController : Controller
+{
+    public IActionResult Giaibt()
+    {
+        return View();
+    }
+    [HttpPost]
+    public IActionResult Giaibt(string hesoA, string hesoB)
+    {
+        string strResult = "Tong 2 so : " + hesoA+hesoB   ;
+        ViewBag.Nhandulieu = strResult;
+        return View();
+    }
+
+
+}
