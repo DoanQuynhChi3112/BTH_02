@@ -1,3 +1,4 @@
+using System.Runtime.Serialization;
 using FirstMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +11,9 @@ namespace FirstMVC.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(string MaNV , string TenNV , string Tuoi , string Luong)
+        public IActionResult Index(Employee emp)
         {
-            string strResult = "Xin Chào" + MaNV + "-" + TenNV + "-" + Tuoi ;
+            string strResult = "Xin Chào" + emp.MaNV + "-" + emp.TenNV + "-" + emp.Tuoi ;
             ViewBag.thongbao = strResult;
             return View();
         }
