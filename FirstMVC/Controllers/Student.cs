@@ -1,4 +1,4 @@
-using DemoMVC.Models;
+using FirstMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 namespace DemoMVC.Controllers
 {
@@ -11,7 +11,7 @@ namespace DemoMVC.Controllers
         [HttpPost]
         public IActionResult Index(string StudentID, string TenSV )
         {
-            string strResult = "Hello :" + std.StudentID + "-" + std.TenSV ; 
+            string strResult = "Hello :" + StudentID + "-" + TenSV ; 
             ViewBag.Nhandulieu = strResult;
             return View();
         }

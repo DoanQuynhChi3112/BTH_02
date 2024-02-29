@@ -18,8 +18,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\PTPMQL2\FirstMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/PTPMQL2/FirstMVC/Views/BT/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQlRcSW5kZXguY3NodG1s
+[C:/PTPMQL2/FirstMVC/Views/BT/Giaiptb2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQlRcR2lhaXB0YjIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PTPMQL2/FirstMVC/Views/BT/tong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQlRcdG9uZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/PTPMQL2/FirstMVC/Views/Employee/Index.cshtml]
