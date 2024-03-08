@@ -9,8 +9,8 @@ namespace FirstMVC.Data{
         }
         public ApplicationDbcontext(DbContextOptions<ApplicationDbcontext> options) : base(options)
         {}
-        public DbSet<Person> Person { get; set;}
-        public DbSet<Employee> Employee { get; set;}
+    
+        public DbSet<Customer> Customer { get; set;}
         
     }
 }
