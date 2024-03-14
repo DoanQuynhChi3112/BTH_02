@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FirstMVC.Data;
 using FirstMVC.Models;
-//2021050114
-namespace Firtmvc.Controllers
+
+namespace FirstMVC.Controllers
 {
     public class CustomerController : Controller
     {
@@ -22,27 +22,25 @@ namespace Firtmvc.Controllers
         // GET: Customer
         public async Task<IActionResult> Index()
         {
-              return _context.Customer != null ? 
-                          View(await _context.Customer.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbcontext.Customer'  is null.");
+            return View(await _context.Customer.ToListAsync());
         }
 
         // GET: Customer/Details/5
         public async Task<IActionResult> Details(string id)
         {
-            if (id == null || _context.Customer == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var Customer = await _context.Customer
+            var customer = await _context.Customer
                 .FirstOrDefaultAsync(m => m.CustomerID == id);
-            if (Customer == null)
+            if (customer == null)
             {
                 return NotFound();
             }
 
-            return View(Customer);
+            return View(customer);
         }
 
         // GET: Customer/Create
@@ -51,12 +49,12 @@ namespace Firtmvc.Controllers
             return View();
         }
 
-        // POST: customer/Create
+        // POST: Customer/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaHTPP,TenHTPP")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerID,FullName")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -67,10 +65,10 @@ namespace Firtmvc.Controllers
             return View(customer);
         }
 
-        // GET: customer/Edit/5
+        // GET: Customer/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null || _context.Customer == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -83,12 +81,12 @@ namespace Firtmvc.Controllers
             return View(customer);
         }
 
-        // POST: customer/Edit/5
+        // POST: Customer/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("MaHTPP,TenHTPP")] Customer customer)
+        public async Task<IActionResult> Edit(string id, [Bind("CustomerID,FullName")] Customer customer)
         {
             if (id != customer.CustomerID)
             {
@@ -118,15 +116,10 @@ namespace Firtmvc.Controllers
             return View(customer);
         }
 
-        private bool CustomerExists(string customerID)
-        {
-            throw new NotImplementedException();
-        }
-
-        // GET: customer/Delete/5
+        // GET: Customer/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null || _context.Customer == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -141,15 +134,11 @@ namespace Firtmvc.Controllers
             return View(customer);
         }
 
-        // POST: customer/Delete/5
+        // POST: Customer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            if (_context.Customer == null)
-            {
-                return Problem("Entity set 'ApplicationDbcontext.customer'  is null.");
-            }
             var customer = await _context.Customer.FindAsync(id);
             if (customer != null)
             {
@@ -160,6 +149,9 @@ namespace Firtmvc.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-       
+        private bool CustomerExists(string id)
+        {
+            return _context.Customer.Any(e => e.CustomerID == id);
+        }
     }
 }
