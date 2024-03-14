@@ -7,7 +7,7 @@ namespace FirstMVC.Models
      public class Customer  {
        
        [Key]
-       public string? CusstomerID { get; set; } 
+       public string? CustomerID { get; set; } 
         public string? FullName { get; set; }       
 
      }     
