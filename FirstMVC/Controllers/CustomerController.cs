@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FirstMVC.Data;
 using FirstMVC.Models;
+using FirstMVC.Models.Process;
 
 namespace FirstMVC.Controllers
 {
     public class CustomerController : Controller
     {
         private readonly ApplicationDbcontext _context;
+
 
         public CustomerController(ApplicationDbcontext context)
         {
@@ -153,5 +156,6 @@ namespace FirstMVC.Controllers
         {
             return _context.Customer.Any(e => e.CustomerID == id);
         }
+                  
     }
 }
